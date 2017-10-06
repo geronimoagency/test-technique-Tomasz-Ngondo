@@ -4,10 +4,68 @@
 {% endblock %}
 
 {% block header %}
+    <header class="row">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+            <a class="navbar-brand" href="#"><img src="public/images/logo.svg" alt=""></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">pop culture</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">design</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">photography</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">about us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><img src="public/images/ic-facebook-connect.svg" alt=""><span>connect with Facebook</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        {% block banner %}
+            <figure>
+                <img src="public/images/header.jpg" srcset="public/images/header@2x.jpg, public/images/header.jpg" alt="">
+                <h1 class="display-4 text-white">{{ data.banner.title }}</h1>
+            </figure>
+        {% endblock %}
+    </header>
 {% endblock %}
 
-{% block banner %}
-{% endblock %}
+
 
 {% block footer %}
+    <footer class="row">
+        <nav class="card-footer bg-transparent">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Instagram</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Facebook</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Twitter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Terms of Service and Privacy</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
 {% endblock %}

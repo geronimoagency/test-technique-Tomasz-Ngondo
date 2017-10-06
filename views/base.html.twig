@@ -13,19 +13,20 @@
         {% endblock %}
     </head>
 
-    <body>
+    <body class="container-fluid">
         {% block popup %}
         {% endblock %}
 
         {% block header %}
+            {% block banner %}
+            {% endblock %}
         {% endblock %}
 
-        {% block banner %}
-        {% endblock %}
-
-        {% block content %}
-        {% endblock %}
-
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        
         {% block footer %}
         {% endblock %}
 

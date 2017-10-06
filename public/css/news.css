@@ -1,0 +1,31 @@
+header figure img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+header figure {
+    position: relative;
+}
+
+header figure h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+header nav div:nth-child(4) {
+    flex-basis: 40%;
+}
+
+header nav div:nth-child(4) ul li a span {
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+footer .nav .nav-link {
+    padding-left: 0;
+    padding-right: 2rem;
+}

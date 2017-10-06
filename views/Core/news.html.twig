@@ -1,5 +1,36 @@
 {% extends "Core/layout.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="public/css/news.css" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
-    news
+    <section>
+        <!-- Page Heading -->
+        <h1 class="my-4 text-center">
+            {{ data.news.title }}
+        </h1>
+        
+        <!-- Page content -->
+        <div class="row">
+            {% for item in data.news.items %}
+                <div class="col-lg-4 col-sm-6">
+                    <div class="card h-100">
+                        <a href="#"><img class="card-img-top" src="{{ item.image.src }}" srcset="{{ item.image.srcset }}" alt=""></a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="#">{{ item.title }}</a>
+                            </h4>
+                            <p class="card-text">{{ item.description }}</p>
+                            <ul>
+                                <li><a href="#">likes</a></li>
+                                <li><a href="#">comments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}
