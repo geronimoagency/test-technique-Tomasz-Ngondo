@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <title></title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Stylesheets -->
+        {% block stylesheets %}
+            <link href="public/css/bootstrap.min.css" rel="stylesheet">
+        {% endblock %}
+    </head>
+
+    <body>
+        {% block popup %}
+        {% endblock %}
+
+        {% block header %}
+        {% endblock %}
+
+        {% block banner %}
+        {% endblock %}
+
+        {% block content %}
+        {% endblock %}
+
+        {% block footer %}
+        {% endblock %}
+
+        <!-- Scripts -->
+        {% block javascript %}
+            <script src="public/js/jquery.min.js" type="text/javascript"></script>
+        {% endblock %}
+    </body>
+</html>
