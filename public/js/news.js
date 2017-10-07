@@ -1,67 +1,93 @@
 $(document).ready(function() {
-    // on open comments
+    // hide extra news data
+    $newsData = $('.news .news-data');
+
+    for (var i=0; i < $newsData.length; i++) {
+        if (i > 5) {
+            $($newsData[i]).hide();
+        }
+    }
+
+    // on popup open event
     $('.comments').on('click', function() {
+        $countDataComments = $(this).find('.align-icon').children().text();
+        $dataComments      = $(this).closest('div').find('.comment-data');
+        $dataFigure        = $(this).closest('div').find('figure');
+        $popup             = $('.popup');
+        $popupFigure       = $popup.find('figure');
+        $popupFormLabel    = $popup.find('.comments-form form label');
+        $popupComments     = $popup.find('.comments-show');
+
         if ($(this).hasClass('selected')) {
                 deselect($(this));               
         } else {
             $(this).addClass('selected');
-            $('.popup').add('.fader').slideFadeToggle();
+            $popup.add('.fader').slideFadeToggle();
         }
         
-        $countComments = $(this).find('.align-icon').children().text();
-        $('.popup').find('figure').prepend($(this).closest('div').find('figure').children().clone()).html();
-        $('.popup').find('.post-comment form label').append('<strong>Commentaires (' + $countComments + ')</strong>');
-
-        $comment = $(this).closest('div').find('.read-comments');
-        
-        $('.popup .div-comments').prepend(function() {
+        // Appending comments data to popup
+        $popupFigure.prepend($dataFigure.children().clone()).html();
+        $popupFormLabel.append('<strong>Commentaires (' + $countDataComments + ')</strong>');
+        $popupComments.prepend(function() {
             var comments = '';
-            
-            for (var i = 0; i < $countComments; i++) {
+            for (var i = 0; i < $countDataComments; i++) {
                 if (i < 2) {
-                    comments += $comment.show()[0].outerHTML;
+                    comments += $dataComments.show()[0].outerHTML;
                 } else {
-                    comments += $comment.hide()[0].outerHTML;
+                    comments += $dataComments.hide()[0].outerHTML;
                 }
             }
             return comments;
         });
-        
         return false;
     });
     
-    // on load more comments
-    $('.popup .btn.btn-secondary').on('click', function() {
-        $allComments = $(this).closest('.div-comments').children('.read-comments');
-        var selectedComments = '';
-        var count = 0;
-
-        $allComments.each(function(index) {
-            if ($(this).css('display') == 'none' && count < 2) {
-                $(this).show('slow');
-                count++;
-            }
-        });
-    })
-    
-    // on close comments
+    // on popup close event 
     $('.close').on('click', function() {
+        $popup = $(this).closest('.popup');
         deselect($('#comments'));
 
-        $(this).closest('.popup').find('figure').children().remove();
-        $(this).closest('.popup').find('.post-comment label').children().remove();
-        $(this).closest('.popup').find('.read-comments').remove();
+        // Removing comments data from popup
+        $popup.find('figure').children().remove();
+        $popup.find('.comments-form label').children().remove();
+        $popup.find('.comment-data').remove();
 
         return false;
     });
+
+    // on load more comments btn
+    $('.popup .btn.btn-secondary').on('click', function() {
+        showData(2, $(this));
+    })
+
+    $('.news .btn.btn-secondary').on('click', function() {
+        showData(1, $(this).parent().children('div').children('div'));
+    })
 });
 
+// Show data
+function showData(countData, $element) {
+    $data = $element.parent().children('div');
+    var count = 0;
+
+    $data.each(function(index) {
+        
+        if ($(this).css('display') == 'none' && count < countData) { 
+            $(this).show('slow');
+            
+            count++;
+        }
+    });
+}
+
+// function hide popup
 function deselect(e) {
     $('.popup').add('.fader').slideFadeToggle(function() {
         e.removeClass('selected');
     });   
 }
 
+// Animate popup fade effect
 $.fn.slideFadeToggle = function(easing, callback) {
     return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
 };

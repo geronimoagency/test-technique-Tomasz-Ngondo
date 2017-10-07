@@ -187,6 +187,15 @@ footer {
     opacity: 1;
 }
 
+.comments-form label,
+.comments-form input {
+    font-size: 20px;
+}
+
+.comments-show p {
+    font-size: 15px;
+}
+
 /* tools classes */
 .align-icon {
     padding-left: 5px;
@@ -197,17 +206,17 @@ footer {
     cursor: pointer;
 }
 
-.div-comments {
+.comments-show {
     max-height: 378px;
     overflow: auto;
 }
 
-.read-comments {
+.comment-data {
     display: none;
     position: relative;
 }
 
-.div-comments p {
+.comments-show p {
     margin-top: 10px;
 }
 

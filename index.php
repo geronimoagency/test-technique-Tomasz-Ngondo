@@ -85,13 +85,22 @@ $data = [
                     'src' => 'public/images/image_6.jpg',
                     'srcset' => 'public/images/image_6@2x.jpg, public/images/image_6@3x.jpg'
                 ]
+            ],
+            6 => [
+                'title' => 'Ghostly Floating Installation by Edoardo...',
+                'description' => 'Edoardo Tresoldi explore le concept de « fantôme » à travers ses incroyables...',
+                'count_likes' => 25,
+                'comments' => $comments,
+                'count_comments' => 0,
+                'image' => [
+                    'src' => 'public/images/image_6.jpg',
+                    'srcset' => 'public/images/image_6@2x.jpg, public/images/image_6@3x.jpg'
+                ]
             ]
+
         ]
     ]
 ];
-
-
-
 
 
 // Render view with data and comments

@@ -15,7 +15,7 @@
         <!-- Page content -->
         <div class="row">
             {% for item in data.news.items %}
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-sm-6 col-lg-4 news-data">
                     <figure class="card item">
                         <a href="#"><img class="card-img-top" src="{{ item.image.src }}" srcset="{{ item.image.srcset }}" alt=""></a>
                         <figcaption class="card-body">
@@ -39,7 +39,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="read-comments">
+                    <div class="comment-data">
                         <div><strong>{{ item.comments.author }}</strong></div>
                         <time>{{ item.comments.published_date }}</time>
                         <p>{{ item.comments.comment }}</p>
