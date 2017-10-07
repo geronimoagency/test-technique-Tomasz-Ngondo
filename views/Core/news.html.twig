@@ -8,14 +8,14 @@
 {% block content %}
     <section class="news">
         <!-- Page Heading -->
-        <h1 class="my-4 text-center">
+        <h1 class="text-center">
             {{ data.news.title }}
         </h1>
         
         <!-- Page content -->
         <div class="row">
             {% for item in data.news.items %}
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-sm-6 col-lg-4">
                     <figure class="card item">
                         <a href="#"><img class="card-img-top" src="{{ item.image.src }}" srcset="{{ item.image.srcset }}" alt=""></a>
                         <figcaption class="card-body">
@@ -29,24 +29,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <img src="public/images/btn-likes.svg" alt="">
-                                <span class="align-icon"><i>{{ item.count_likes }}</i> likes</span>
+                                <span class="align-icon text-muted"><span>{{ item.count_likes }}</span> likes</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link comments" href="#">
                                 <img src="public/images/btn-comments.svg" alt="">
-                                <span class="align-icon"><i>{{ item.count_comments }}</i> comments</span>
+                                <span class="align-icon text-muted"><span>{{ item.count_comments }}</span> comments</span>
                             </a>
                         </li>
                     </ul>
                     <div class="read-comments">
-                        <p><strong>{{ item.comments.author }}</strong></p>
-                        <p>{{ item.comments.published_date }}</p>
+                        <div><strong>{{ item.comments.author }}</strong></div>
+                        <time>{{ item.comments.published_date }}</time>
                         <p>{{ item.comments.comment }}</p>
                     </div>
                 </div>
             {% endfor %}
         </div>
+        <button type="button" class="btn btn-secondary">Load more</button>
     </section>
 {% endblock %}
 
