@@ -1,3 +1,10 @@
+/* global tags */
+figure {
+    border: none !important;
+    margin: 0;
+}
+
+/* header */
 header figure img {
     width: 100%;
     height: auto;
@@ -20,12 +27,108 @@ header nav div:nth-child(4) {
     flex-basis: 40%;
 }
 
-header nav div:nth-child(4) ul li a span {
-    padding-left: 5px;
-    vertical-align: middle;
-}
+/* main */
+main .news .row > div {
+    padding-bottom: 20px;
+    padding-top: 20px;
+} 
 
-footer .nav .nav-link {
+/* footer */
+footer .nav-link,
+main section .card .nav-link {
     padding-left: 0;
     padding-right: 2rem;
+}
+
+/* news comment popup */
+.fader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    display:none;
+}
+
+.popup {
+    position: absolute;
+    height: auto;
+    top: calc(50% + 140px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    z-index: 1;
+    display:none;
+    padding: 30px;
+}
+
+.popup figure {
+    display: flex;
+    margin: 0;
+}
+
+.popup figure figcaption {
+    padding: 0px 15px 0px 15px;
+}
+
+.popup form .input-group-addon {
+    padding: 0;
+    margin-right: 15px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+
+.popup form #new_comment {
+    font-style: italic;
+}
+
+.popup .card-img-top {
+    height: 226px;
+    width: 300px;
+    object-fit: contain;
+}
+
+.popup .btn-primary {
+    background-color: #000000;
+    border-radius: 0;
+    width: 200px;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+.popup .btn-secondary {
+    color: black;
+    background-color: white;
+    border-color: black;
+    border-radius: 0;
+    font-weight: bold;
+    width: 100%;
+}
+
+.popup .close-div {
+    width: 100%;
+    display: inline-block;
+}
+
+/* tools classes */
+.align-icon {
+    padding-left: 5px;
+    vertical-align: top;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.div-comments {
+    max-height: 374px;
+    overflow: auto;
+}
+
+.read-comments {
+    display: none;
+    position: relative;
 }

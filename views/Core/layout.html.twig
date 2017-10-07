@@ -1,6 +1,29 @@
 {% extends "base.html.twig" %}
 
 {% block popup %}
+    <div class="fader w-100 h-100"></div>
+    <div class="popup col-lg-6 ml-auto mr-auto">
+        <div class="close-div">
+            <a href="#" class="close"><img src="public/images/shapex.svg" alt=""></a>
+        </div>
+        <figure></figure>
+        <hr />
+        <div class="post-comment">
+            <form>
+                <label for="new_comment"><strong></strong></label>
+                <div class="input-group mb-2 mb-sm-0">
+                    <div class="input-group-addon"><img src="public/images/shape.svg" alt=""></div>
+                    <input type="text" id="new_comment" class="form-control" name="new_comment" placeholder="Laissez votre commentaire ici...">
+                </div>
+                <div class="input-group mb-2 mb-sm-0">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </form>
+        </div>
+        <div class="div-comments">
+            <button type="button" class="btn btn-secondary">Load more</button>
+        </div>
+    </div>
 {% endblock %}
 
 {% block header %}
@@ -32,7 +55,10 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="public/images/ic-facebook-connect.svg" alt=""><span>connect with Facebook</span></a>
+                        <a class="nav-link" href="#">
+                            <img src="public/images/ic-facebook-connect.svg" alt="">
+                            <span class="align-icon">connect with Facebook</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -47,11 +73,9 @@
     </header>
 {% endblock %}
 
-
-
 {% block footer %}
     <footer class="row">
-        <nav class="card-footer bg-transparent">
+        <nav class="navbar bg-transparent">
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Instagram</a>
